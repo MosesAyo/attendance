@@ -1,0 +1,14 @@
+*Install*
+   - python 3 (make sure add to path is checked during installation)
+     	https://www.python.org/downloads/
+   - opencv python
+	...open cmd
+	- pip install opencv-python
+   - pyqt5 (for GUI)
+	- pip install pyqt5
+	- pip install pyqt5-tools
+
+* Run *
+
+  ...from cmd, run...
+  - python index.py
