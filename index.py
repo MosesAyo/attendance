@@ -239,6 +239,8 @@ class TakeAttendance(base, attendanceUi):
         closeCam = 0
         query=("SELECT * FROM courses WHERE id=?")
         getCourse = cur.execute(query, (courseId,)).fetchone()
+        print("Course ID   "+ str(courseId))
+        print(getCourse)
         self.attendanceCourseText.setText(getCourse[1])
         self.attendanceCourseTitle.setText(getCourse[2])
         global f 
