@@ -10,24 +10,44 @@ import numpy as np
 from PIL import Image
 import csv
 from datetime import datetime
-
 from PyQt5.uic import loadUiType
 
+welcomeUi, onboarding = loadUiType('Welcome.ui')
 ui,_ = loadUiType('UserInterface.ui')
 attendanceUi, base = loadUiType('attendance.ui')
-
 con = sqlite3.connect("attendance.db")
 cur = con.cursor()
 
-class MainApp(QMainWindow, ui):
+
+
+
+class MainApp(QMainWindow, welcomeUi):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.setWindowTitle("Welcome")
+        self.pushButton.clicked.connect(self.Start_Button)
+        self.pushButton_2.clicked.connect(self.Exit_Button)
+        self.show()
+
+    def Start_Button(self):
+        self.display = Home()
+        self.display.show()
+        self.close()
+
+    def Exit_Button(self):
+        self.close()
+class Home(_, ui,):
+    def __init__(self):
+        _.__init__(self)
+        self.setupUi(self)
         self.Handle_Buttons()
-        self.setWindowTitle("Attendance System")
+        self.setWindowTitle("Nigerian Defence Academy Attendance System")
         self.show()
         self.getCourses()
         self.handle_UI_Changes()
+       
+
 
     def Handle_Buttons(self):
         self.StartAClass.clicked.connect(self.Start_A_Class_Tab)
@@ -74,8 +94,7 @@ class MainApp(QMainWindow, ui):
     def Start_A_Class_Tab(self):
         self.tabWidget_2.setCurrentIndex(0)
         self.getCourses()
-        # print(self.listWidget.count ())
-        
+        # print(self.listWidget.count ())     
         pass
 
     def Create_A_Class_Tab(self):
@@ -102,7 +121,7 @@ class MainApp(QMainWindow, ui):
 
         if (studentId and fullName !=""):
             try:
-                query = "INSERT INTO students (student_id, full_name) VALUES(?,?)"
+                query ="INSERT INTO students (student_id, full_name) VALUES(?,?)"
                 cur.execute(query,(studentId,fullName))
                 con.commit()
                 QMessageBox.information(self,"Success","Student has been added")
@@ -141,9 +160,7 @@ class MainApp(QMainWindow, ui):
         cam = cv2.VideoCapture(0)
         cam.set(3, 640) # set video width
         cam.set(4, 480) # set video height
-
         face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-
         # For each person, enter one numeric face id
         # face_id = input('\n enter user id end press <return> ==>  ')
         face_id = result[0]
@@ -158,17 +175,18 @@ class MainApp(QMainWindow, ui):
             # img = cv2.flip(img, -1) # flip video image vertically
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             faces = face_detector.detectMultiScale(gray, 1.3, 5)
-
+            cv2.imshow('camera',img)
             for (x,y,w,h) in faces:
 
                 cv2.rectangle(img, (x,y), (x+w,y+h), (255,0,0), 2)     
                 count += 1
-
+                
+             
                 # Save the captured image into the datasets folder
                 cv2.imwrite("dataset/User." + str(face_id) + '.' + str(count) + ".jpg", gray[y:y+h,x:x+w])
 
 
-            k = cv2.waitKey(100) & 0xff # Press 'ESC' for exiting video
+            k = cv2.waitKey(20) & 0xff # Press 'ESC' for exiting video
             if k == 27:
                 break
             elif count >= 30: # Take 30 face sample and stop video
@@ -244,8 +262,8 @@ class TakeAttendance(base, attendanceUi):
         self.attendanceCourseText.setText(getCourse[1])
         self.attendanceCourseTitle.setText(getCourse[2])
         global f 
-        now = datetime. now()
-        current_time = now. strftime("%H:%M:%S %p")
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S %p")
         newtime = getCourse[1]+" "+now.strftime("%I%p %a-%dth-%b-%y")
         print(newtime)
         # date = now.year+"-"
@@ -289,7 +307,8 @@ class TakeAttendance(base, attendanceUi):
 
             ret, img =cam.read()
             img = cv2.flip(img, 1) # Flip vertically
-
+            cv2.imshow('camera',img) 
+          
             gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
             faces = faceCascade.detectMultiScale( 
@@ -311,7 +330,7 @@ class TakeAttendance(base, attendanceUi):
                     confidence = "  {0}%".format(round(100 - confidence))
                     validateThreshold = round(100 - accuracy)
                     
-                    if(validateThreshold>=50):
+                    if(validateThreshold>=40):
                         global studentsList
                         query=("SELECT * FROM students WHERE id=?")
                         student = cur.execute(query, (id,)).fetchone()
@@ -324,7 +343,7 @@ class TakeAttendance(base, attendanceUi):
                             print(studentsList)
                             global closeCam
                             closeCam=27
-                            # cv2.waitKey(10) = 27
+                            # cv2.waitKey(10) = 20
                             global f
                             f.writerow([
                             totalAttendees,
@@ -335,7 +354,7 @@ class TakeAttendance(base, attendanceUi):
                         print(student)
                         # print(str(id)+"    "+str(confidence))
                 else:
-                    id = "unknown"
+                    id = "Unknown Cadet"
                     confidence = "  {0}%".format(round(100 - confidence))
                 
                 cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)
@@ -344,11 +363,11 @@ class TakeAttendance(base, attendanceUi):
             cv2.imshow('camera',img) 
 
             # global closeCam
-            if closeCam == 27:
+            if closeCam == 20:
                 closeCam=0
                 break
             k = cv2.waitKey(10) & 0xff # Press 'ESC' for exiting video
-            if k == 27:
+            if k == 20:
                 break
 
         # Do a bit of cleanup
@@ -367,7 +386,7 @@ def main():
     app = QApplication(sys.argv)
     window = MainApp()
     window.show()
-    attendance.StartClass().show
+    # attendance.StartClass().show
     app.exec_()
 
 if __name__ == '__main__':
