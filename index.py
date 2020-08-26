@@ -12,6 +12,7 @@ import csv
 from datetime import datetime
 from PyQt5.uic import loadUiType
 
+coursesUi,course_iu = loadUiType('courses.ui')
 welcomeUi, onboarding = loadUiType('Welcome.ui')
 ui,_ = loadUiType('UserInterface.ui')
 attendanceUi, base = loadUiType('attendance.ui')
@@ -94,6 +95,9 @@ class Home(_, ui,):
     def Start_A_Class_Tab(self):
         self.tabWidget_2.setCurrentIndex(0)
         self.getCourses()
+        self.display = MyClasses()
+        self.display.show()
+        self.close()
         # print(self.listWidget.count ())     
         pass
 
@@ -118,11 +122,27 @@ class Home(_, ui,):
     def Add_Student(self):
         studentId=self.StudentIdTextField.toPlainText()
         fullName=self.StudentNameTextField.toPlainText()
+        department = self.DepartmentTextField.toPlainText()
+        battalion = self.BattalionDropdown.currentText()
+        level = self.LevelDropdown.currentText()
+        gender = self.GenderDropdown.currentText()
+        dobYear = self.DateOfBirth.date().year()
+        dobMonth = self.DateOfBirth.date().month()
+        dobDay = self.DateOfBirth.date().day()
+        state = self.StateDropdown.currentText()
+        dob = datetime(dobYear, dobMonth, dobDay).strftime("%b %d %Y ")
 
-        if (studentId and fullName !=""):
+        print("Department : "+department)
+        print("Battalion : "+str(battalion))
+        print("Level : "+str(level))
+        print("Gender : "+str(gender))
+        print("Date of birth : "+str(dobDay))
+        print("State : "+str(state))
+
+        if (studentId and fullName and department !=""):
             try:
-                query ="INSERT INTO students (student_id, full_name) VALUES(?,?)"
-                cur.execute(query,(studentId,fullName))
+                query ="INSERT INTO students (student_id, full_name, department, gender, battalion, level, dob, state) VALUES(?,?,?,?,?,?,?,?)"
+                cur.execute(query,(studentId,fullName,department,gender,battalion,level,dob,state))
                 con.commit()
                 QMessageBox.information(self,"Success","Student has been added")
                 self.StudentIdTextField.setText("")
@@ -233,6 +253,50 @@ class Home(_, ui,):
                 print("\n [INFO] {0} faces trained. Exiting Program".format(len(np.unique(ids))))
                 break
 
+class MyClasses(course_iu, coursesUi):
+    def __init__(self):
+        super(course_iu,self).__init__()
+        self.setupUi(self)
+        self.getCourses()
+        self.Handle_Buttons()
+        self.setWindowTitle("My Classes")
+        self.show()
+    
+    def Handle_Buttons(self):
+        self.listWidget.doubleClicked.connect(self.SelectedCourse)
+        self.backButton.clicked.connect(self.BackButton)
+        pass
+
+    def BackButton(self):
+        self.display = Home()
+        self.display.show()
+        self.close()
+
+    def getCourses(self):
+        # total_courses = cur.execute("SELECT * FROM courses ORDER BY id DESC LIMIT 1").fetchone()
+        # print("Total Courses"+str(total_courses[0]))
+        self.listWidget.clear()
+        # if (self.listWidget.count()>=)
+        query ='SELECT course_code, course_title FROM courses'
+        courses = cur.execute(query).fetchall()
+
+        for course in courses :
+            self.listWidget.addItem(str(course[0])+"   -------------------------------   "+str(course[1]))
+        
+    def SelectedCourse(self):
+        global courseId
+        listItemSelected = self.listWidget.currentItem().text()
+        courseId = self.listWidget.currentRow()+1
+        courseSelected = listItemSelected[:7].strip()
+        courseSelectedTitle = listItemSelected[43:].strip()
+        print("course id =="+str(courseId+1))
+        print(listItemSelected )
+        print(courseSelected )
+        print(courseSelectedTitle )
+        self.display = TakeAttendance()
+        self.display.show()
+        self.close()
+
 class TakeAttendance(base, attendanceUi):
     def __init__(self):
         super(base,self).__init__()
@@ -246,6 +310,41 @@ class TakeAttendance(base, attendanceUi):
 
 
     def UI(self):
+        query=("SELECT * FROM students")
+        getAllStudents = cur.execute(query).fetchall()
+        print(getAllStudents)
+
+        # rowPosition = self.tableWidget.rowCount()
+        header_labels = ['NDA NO.', 'NAME', 'DEPARTMENT', 'BATTALION', 'LEVEL', 'GENDER', 'DOB', 'STATE']  
+        # self.tableWidget.insertRow(rowPosition)
+        # QTableWidget.
+        self.tableWidget.setRowCount(len(getAllStudents))
+        self.tableWidget.setColumnCount(8)
+        rowCounter = 0
+
+        for student in getAllStudents:
+            print("Id: ", student[0])
+            print("NDA NO.: ", student[1])
+            print("Name: ", student[2])
+            print("Department: ", student[3])
+            print("Gender: ", student[4])
+            print("Battalion: ", student[5])
+            print("Level: ", student[6])
+            print("Date Of Birth: ", student[7])
+            print("State: ", student[8])
+            self.tableWidget.setHorizontalHeaderLabels(header_labels)
+            self.tableWidget.setItem(rowCounter, 0, QTableWidgetItem(str(student[1])))
+            self.tableWidget.setItem(rowCounter, 1, QTableWidgetItem(str(student[2])))
+            self.tableWidget.setItem(rowCounter, 2, QTableWidgetItem(str(student[3])))
+            self.tableWidget.setItem(rowCounter, 3, QTableWidgetItem(str(student[5])))
+            self.tableWidget.setItem(rowCounter, 4, QTableWidgetItem(str(student[6])))
+            self.tableWidget.setItem(rowCounter, 5, QTableWidgetItem(str(student[4])))
+            self.tableWidget.setItem(rowCounter, 6, QTableWidgetItem(str(student[7])))
+            self.tableWidget.setItem(rowCounter, 7, QTableWidgetItem(str(student[8])))
+
+            rowCounter = rowCounter+1
+            # self.tableWidget.setItem(rowPosition, 2, QTableWidgetItem("Text 3"))
+
         self.CourseDetails()
 
     def CourseDetails(self):
@@ -259,6 +358,7 @@ class TakeAttendance(base, attendanceUi):
         getCourse = cur.execute(query, (courseId,)).fetchone()
         print("Course ID   "+ str(courseId))
         print(getCourse)
+        
         self.attendanceCourseText.setText(getCourse[1])
         self.attendanceCourseTitle.setText(getCourse[2])
         global f 
@@ -363,11 +463,11 @@ class TakeAttendance(base, attendanceUi):
             cv2.imshow('camera',img) 
 
             # global closeCam
-            if closeCam == 20:
+            if closeCam == 27:
                 closeCam=0
                 break
             k = cv2.waitKey(10) & 0xff # Press 'ESC' for exiting video
-            if k == 20:
+            if k == 27:
                 break
 
         # Do a bit of cleanup
@@ -378,7 +478,7 @@ class TakeAttendance(base, attendanceUi):
 ################################################################################################################################        
 
     def End_Class_Button(self):
-        self.main_window = MainApp()
+        self.main_window = MyClasses()
         self.close()
 
 

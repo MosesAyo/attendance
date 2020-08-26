@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>738</width>
-    <height>558</height>
+    <width>819</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -187,7 +187,7 @@ width: 100px;</string>
     <item>
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tabWidget_2Page1">
        <attribute name="title">
@@ -491,7 +491,7 @@ border-radius: 7px; font-weight: 500;</string>
                 <property name="maximumSize">
                  <size>
                   <width>300</width>
-                  <height>383</height>
+                  <height>505</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -501,9 +501,9 @@ border-radius: 7px; font-weight: 500;</string>
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>60</y>
-                   <width>256</width>
-                   <height>50</height>
+                   <y>20</y>
+                   <width>261</width>
+                   <height>31</height>
                   </rect>
                  </property>
                  <property name="maximumSize">
@@ -513,27 +513,27 @@ border-radius: 7px; font-weight: 500;</string>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:white;border-radius:10; border: 1px solid grey;</string>
+                  <string notr="true">background-color:white;border-radius:10; border: 1px solid grey;font-size:16px;</string>
                  </property>
                  <property name="html">
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:16px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                 <widget class="QPushButton" name="EnrollFaceId">
                  <property name="geometry">
                   <rect>
-                   <x>20</x>
-                   <y>290</y>
-                   <width>256</width>
+                   <x>170</x>
+                   <y>430</y>
+                   <width>111</width>
                    <height>51</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: #000000;color:white;font-weight:500;height:40px;margin-top:20px;border-radius:10px;font-size:15px;</string>
+                  <string notr="true">background-color: #000000;color:white;font-weight:500;height:40px;margin-top:20px;border-radius:10px;font-size:12px;</string>
                  </property>
                  <property name="text">
                   <string>Enroll Face ID</string>
@@ -543,9 +543,9 @@ p, li { white-space: pre-wrap; }
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>160</y>
-                   <width>256</width>
-                   <height>50</height>
+                   <y>80</y>
+                   <width>261</width>
+                   <height>31</height>
                   </rect>
                  </property>
                  <property name="maximumSize">
@@ -555,20 +555,20 @@ p, li { white-space: pre-wrap; }
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:white;border-radius:10; border: 1px solid grey;</string>
+                  <string notr="true">background-color:white;border-radius:10; border: 1px solid grey;font-size:16px;</string>
                  </property>
                 </widget>
                 <widget class="QLabel" name="label_7">
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>116</y>
+                   <y>50</y>
                    <width>256</width>
-                   <height>38</height>
+                   <height>41</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;</string>
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
                  </property>
                  <property name="text">
                   <string>FULL NAME</string>
@@ -578,13 +578,13 @@ p, li { white-space: pre-wrap; }
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>16</y>
+                   <y>-10</y>
                    <width>256</width>
                    <height>38</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;</string>
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;font-size:12px;</string>
                  </property>
                  <property name="text">
                   <string>NDA NUMBER</string>
@@ -594,18 +594,451 @@ p, li { white-space: pre-wrap; }
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>230</y>
-                   <width>256</width>
+                   <y>430</y>
+                   <width>111</width>
                    <height>51</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: #128531;color:white;font-weight:500;height:40px;margin-top:20px;border-radius:10px;font-size:15px;</string>
+                  <string notr="true">background-color: #128531;color:white;font-weight:500;height:40px;margin-top:20px;border-radius:10px;font-size:12px;</string>
                  </property>
                  <property name="text">
                   <string>Add Student</string>
                  </property>
                 </widget>
+                <widget class="QComboBox" name="BattalionDropdown">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>200</y>
+                   <width>261</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:white;padding-left:10px;border-radius:0;</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>ABBYSYNA</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>BURMA</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>DALET</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>MOGADISHU</string>
+                  </property>
+                 </item>
+                </widget>
+                <widget class="QLabel" name="label_12">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>300</y>
+                   <width>71</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>GENDER :</string>
+                 </property>
+                </widget>
+                <widget class="QComboBox" name="GenderDropdown">
+                 <property name="geometry">
+                  <rect>
+                   <x>110</x>
+                   <y>310</y>
+                   <width>171</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: black; color:white;padding-left:10px;border-radius:0; border: 1px;padding-right: 10px;</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Male</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Female</string>
+                  </property>
+                 </item>
+                </widget>
+                <widget class="QLabel" name="label_13">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>170</y>
+                   <width>71</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>BATTALION</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_14">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>230</y>
+                   <width>71</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>LEVEL</string>
+                 </property>
+                </widget>
+                <widget class="QComboBox" name="LevelDropdown">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>260</y>
+                   <width>261</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:white;color:black; border-radius:0;</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>100 LEVEL</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>200 LEVEL</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>300 LEVEL</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>400 LEVEL</string>
+                  </property>
+                 </item>
+                </widget>
+                <widget class="QLabel" name="label_15">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>110</y>
+                   <width>256</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>DEPARTMENT</string>
+                 </property>
+                </widget>
+                <widget class="QTextEdit" name="DepartmentTextField">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>140</y>
+                   <width>261</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:white;border-radius:10; border: 1px solid grey;font-size:16px;</string>
+                 </property>
+                </widget>
+                <widget class="QDateEdit" name="DateOfBirth">
+                 <property name="geometry">
+                  <rect>
+                   <x>140</x>
+                   <y>360</y>
+                   <width>141</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: white;border-radius:0; padding-left:10px;</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_16">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>350</y>
+                   <width>101</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>DATE OF BIRTH</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_17">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>400</y>
+                   <width>121</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font-size:15px;margin-bottom:10px;margin-top:10px;background-color:none;font-size:12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>STATE OF ORIGIN:</string>
+                 </property>
+                </widget>
+                <widget class="QComboBox" name="StateDropdown">
+                 <property name="geometry">
+                  <rect>
+                   <x>140</x>
+                   <y>410</y>
+                   <width>141</width>
+                   <height>22</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: white;color:black;border-radius:0;</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Abia</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Adamawa</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Akwa Ibom</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Anambra</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Bauchi</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Bayelsa</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Benue</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Borno</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Cross River</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Delta</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ebonyi</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Edo</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ekiti</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Enugu</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Federal Capital Territory</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Gombe</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Imo</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Jigawa</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kaduna</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kano</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Katsina</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kebbi</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kogi</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Kwara</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Lagos</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Nasarawa</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Niger</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ogun</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ondo</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Osun</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Oyo</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Plateau</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Rivers</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Sokoto</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Taraba</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Yobe</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Zamfara</string>
+                  </property>
+                 </item>
+                </widget>
+                <zorder>StudentIdTextField</zorder>
+                <zorder>EnrollFaceId</zorder>
+                <zorder>label_7</zorder>
+                <zorder>label_8</zorder>
+                <zorder>AddStudent</zorder>
+                <zorder>StudentNameTextField</zorder>
+                <zorder>BattalionDropdown</zorder>
+                <zorder>label_12</zorder>
+                <zorder>GenderDropdown</zorder>
+                <zorder>label_13</zorder>
+                <zorder>label_14</zorder>
+                <zorder>LevelDropdown</zorder>
+                <zorder>label_15</zorder>
+                <zorder>DepartmentTextField</zorder>
+                <zorder>DateOfBirth</zorder>
+                <zorder>label_16</zorder>
+                <zorder>label_17</zorder>
+                <zorder>StateDropdown</zorder>
                </widget>
               </item>
              </layout>
@@ -760,7 +1193,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>738</width>
+     <width>819</width>
      <height>21</height>
     </rect>
    </property>

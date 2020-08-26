@@ -130,10 +130,38 @@
        </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="attendanceListWidget">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid #e3e3e3; border-radius: 10px</string>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>1</number>
         </property>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Present Students</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QListWidget" name="attendanceListWidget">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid #e3e3e3; border-radius: 10px;padding:10px;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="all_students">
+         <attribute name="title">
+          <string>All Students</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid #e3e3e3; border-radius: 5px;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
       <item>
